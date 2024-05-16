@@ -33,6 +33,7 @@ import { SDKMetaInterface } from "../../application-templates/templates/single-p
 export interface ApplicationConfig {
     advancedConfigurations: {
         showEnableAuthorization: boolean;
+        showHybridFlowFeatureStatusChip: boolean;
         showMyAccount: boolean;
         showMyAccountStatus: boolean;
         showSaaS: boolean;

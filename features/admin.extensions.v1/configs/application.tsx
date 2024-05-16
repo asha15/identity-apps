@@ -106,6 +106,7 @@ const isIdentityClaim = (claim: ExtendedClaimInterface | ExtendedExternalClaimIn
 export const applicationConfig: ApplicationConfig = {
     advancedConfigurations: {
         showEnableAuthorization: true,
+        showHybridFlowFeatureStatusChip: true,
         showMyAccount: true,
         showMyAccountStatus: false,
         showReturnAuthenticatedIdPs: true,
