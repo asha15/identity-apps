@@ -96,6 +96,7 @@ import {
 } from "../../models";
 import { ApplicationManagementUtils } from "../../utils/application-management-utils";
 import { ApplicationCertificateWrapper } from "../settings/certificate";
+import "./inbound-oidc-form.scss";
 
 /**
  * Proptypes for the inbound OIDC form component.
@@ -335,7 +336,7 @@ export const InboundOIDCForm: FunctionComponent<InboundOIDCFormPropsInterface> =
      */
     // const HYBRID_FLOW_ENABLE_CHECKBOX_VALUE:
 
-    const HYBRID_FLOW_ENABLE_CONFIG: StringUtils = "enable-hybrid-flow";
+    const HYBRID_FLOW_ENABLE_CONFIG: string = "enable-hybrid-flow";
     const HYBRID_FLOW_RESPONSE_TYPE: string = "hybridFlowResponseType";
     const CODE_TOKEN: string = "code token";
     const CODE_IDTOKEN: string = "code id_token";
@@ -538,20 +539,12 @@ export const InboundOIDCForm: FunctionComponent<InboundOIDCFormPropsInterface> =
 
     }, [ selectedGrantTypes, isGrantChanged ]);
 
-    // useEffect(() => {
-    //     setHybridFlowResponseTypeField(false);
-    //     if (selectedGrantTypes?.includes(ApplicationManagementConstants.AUTHORIZATION_CODE_GRANT)) {
-    //         setHybridFlowResponseTypeField(true);
-    //     }
-    // }, [ selectedGrantTypes, isGrantChanged ]);
-
     useEffect(() => {
         setHybridFlowEnableConfig(false);
         if (selectedGrantTypes?.includes(ApplicationManagementConstants.AUTHORIZATION_CODE_GRANT)) {
             setHybridFlowEnableConfig(true);
         }
     }, [ selectedGrantTypes, isGrantChanged ]);
-
 
     /**
      * Check whether to enable refresh token grant type or not.
@@ -2018,8 +2011,8 @@ export const InboundOIDCForm: FunctionComponent<InboundOIDCFormPropsInterface> =
                                 <Divider hidden />
                             </Grid.Column>
                             <Grid.Column mobile={ 16 } tablet={ 16 } computer={ 16 }>
-                                <Box display="flex" alignItems="flex-end">
-                                    <Heading as="h4">
+                                <Box display="flex" alignItems="self-start">
+                                    <Heading as="h4" className="hybrid-flow-heading">
                                         { t("applications:forms.inboundOIDC.sections" +
                                         ".hybridFlow.heading") }
                                     </Heading>
